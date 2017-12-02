@@ -741,11 +741,12 @@ class BenchmarkCNN(object):
       self.server = None
       if self.job_name != 'controller':
         if not self.server:
+          print("Line 744 tf.train.Server")
           self.server = tf.train.Server(self.cluster, job_name=self.job_name,
                                         task_index=self.task_index,
                                         config=create_config_proto(self.params),
                                         protocol=self.params.server_protocol)
-
+          print("Line 749")
       worker_prefix = '/job:worker/task:%s' % self.task_index
       if use_ps_server:
         self.param_server_device = tf.train.replica_device_setter(

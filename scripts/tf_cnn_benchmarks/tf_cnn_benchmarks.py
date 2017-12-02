@@ -40,7 +40,9 @@ def main(extra_flags):
     raise ValueError('Received unknown flags: %s' % extra_flags[1:])
 
   params = benchmark_cnn.make_params_from_flags()
+  log_fn('Calling setup')
   benchmark_cnn.setup(params)
+  log_fn('Create Benchmark')
   bench = benchmark_cnn.BenchmarkCNN(params)
 
   tfversion = cnn_util.tensorflow_version_tuple()
