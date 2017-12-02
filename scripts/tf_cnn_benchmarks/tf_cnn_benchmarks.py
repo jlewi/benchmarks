@@ -39,6 +39,7 @@ def main(extra_flags):
   if len(extra_flags) > 1:
     raise ValueError('Received unknown flags: %s' % extra_flags[1:])
 
+  print("tf_cnn_benchmarks called.")
   params = benchmark_cnn.make_params_from_flags()
   log_fn('Calling setup')
   benchmark_cnn.setup(params)
